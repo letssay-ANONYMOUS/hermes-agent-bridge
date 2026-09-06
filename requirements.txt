@@ -1,0 +1,17 @@
+# Core server
+fastapi>=0.110
+uvicorn[standard]>=0.27
+pydantic>=2.0
+httpx>=0.26
+
+# Audio conversion for the streaming STT path
+numpy>=1.24
+soundfile>=0.12
+
+# Config parsing
+PyYAML>=6.0
+ruamel.yaml>=0.18
+
+# Optional: local Kokoro text-to-speech. Install into a separate venv and point
+# HERMES_KOKORO_PYTHON at it — it pulls in torch and is large.
+#   kokoro>=0.9
