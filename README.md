@@ -188,8 +188,7 @@ GROK_BRIDGE.md       how the Grok session bridge works
 A two-person project.
 
 - **Omar** — partnerships
-- **[@letssay-ANONYMOUS](https://github.com/letssay-ANONYMOUS)** — architecture,
-  design and implementation
+- **Hasan** — architecture, design and implementation
 
 ## AI assistance
 
