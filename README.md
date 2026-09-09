@@ -9,6 +9,12 @@ this gives them a single remote front door.
 The server runs on your own machine. Agents execute locally with your own
 credentials and your own files. Nothing is proxied through a third-party backend.
 
+> **Status: work in progress.** This is an ongoing personal project, not a
+> finished product. It was extracted from a working private build and opened up
+> mid-development, so expect rough edges. It runs and is used daily, but the
+> codebase is still moving — see [Project status](#project-status) for what is
+> solid and what is not.
+
 ```
   phone / laptop browser
           │
@@ -42,6 +48,35 @@ one local server, one web UI, every agent backend you already have installed.
 - **Installable PWA.** Add to home screen; a service worker caches the shell.
 - **Local-first.** Speech-to-text, the fast model and text-to-speech can all run
   on-device. Cloud providers are opt-in overrides, not defaults.
+
+## Project status
+
+Ongoing and unfinished. Opened up mid-development rather than at a release, so
+it is honest about where it stands:
+
+**Works and is used daily**
+
+- Multi-engine thread routing across Codex, Claude Code and Grok
+- Attaching to live Grok CLI sessions from the browser
+- The local voice pipeline, including barge-in and rolling partial transcripts
+- Password + device-session auth, and tunnel-vs-LAN origin classification
+
+**Rough or incomplete**
+
+- `server.py` is a single ~330 KB module and `static/index.html` a single
+  ~410 KB file. Both grew organically and want splitting up.
+- Test coverage is thin — one module is covered; the rest is manually tested.
+  There is no CI yet.
+- Heavily macOS-shaped: `say` for fallback TTS, `ipconfig getifaddr en0` for the
+  cert, and an `/Applications` default for the Codex binary. Linux mostly works
+  but is less travelled.
+- The Antigravity engine needs its desktop app already running.
+- The Hermes engine needs a separate Hermes checkout; without it that one engine
+  is unavailable while everything else runs fine.
+- Error surfacing is inconsistent — some engine failures land in the server log
+  rather than the UI.
+
+Issues and PRs are welcome, but treat the API and layout as unstable.
 
 ## Requirements
 
@@ -147,6 +182,13 @@ scripts/             Grok bridge helpers, icon generator
 tests/               pytest suite
 GROK_BRIDGE.md       how the Grok session bridge works
 ```
+
+## AI assistance
+
+Parts of this project were written with AI coding assistants, which is fitting
+given what it does. The architecture, the product decisions and the review are
+the author's; the assistants were used for implementation and refactoring. All
+code here has been read and is run in daily use.
 
 ## Credits
 
