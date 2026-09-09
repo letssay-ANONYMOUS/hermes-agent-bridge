@@ -183,6 +183,14 @@ tests/               pytest suite
 GROK_BRIDGE.md       how the Grok session bridge works
 ```
 
+## Team
+
+A two-person project.
+
+- **Omar** — partnerships
+- **[@letssay-ANONYMOUS](https://github.com/letssay-ANONYMOUS)** — architecture,
+  design and implementation
+
 ## AI assistance
 
 Parts of this project were written with AI coding assistants, which is fitting
